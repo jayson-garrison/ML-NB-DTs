@@ -43,6 +43,6 @@ class NaiveBayes:
         # apply P(x_i | y) = (1/sqrt(2*pi*(variance_y)^2)) * e^(-((x_i-mean_y)^2)/(2*(variance_y)^2))
         mean = self._mean[class_idx]
         var = self._var[class_idx]
-        numerator = np.exp(-((x - mean) ** 2) / (2 * var))
+        numerator = np.exp(-((x.astype(float) - mean) ** 2) / (2 * var))
         denominator = np.sqrt(2 * np.pi * var)
         return numerator / denominator
